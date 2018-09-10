@@ -1,8 +1,13 @@
 require 'zlib'
 
 class Wordninja
-  def initialize
-    f = Zlib::GzipReader.open('./wordninja/wordninja_words.txt.gz')
+  def initialize(filename)
+    filename ||= './lists/wordninja_words.txt.gz'
+    if filename.end_with?('gz')
+      f = Zlib::GzipReader.open(filename)
+    else
+      f = File.open(filename)
+    end
     @words = f.readlines.map(&:chomp)
     f.close
 
