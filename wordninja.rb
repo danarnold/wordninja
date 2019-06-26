@@ -1,6 +1,7 @@
 require 'zlib'
 
 class Wordninja
+
   def initialize(filename)
     filename ||= './lists/wordninja_words.txt.gz'
     if filename.end_with?('gz')
@@ -60,4 +61,5 @@ class Wordninja
 
     out.reverse
   end
+
 end
