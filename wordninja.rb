@@ -22,7 +22,7 @@ class Wordninja
   def split(s)
     s = s.downcase
     l = s.split(@split_re).map { |e| split_part(e) }
-    l
+    l.flatten
   end
 
   # Uses dynamic programming to infer the location of spaces in a string
